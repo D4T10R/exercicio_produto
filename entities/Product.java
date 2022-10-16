@@ -37,8 +37,8 @@ public class Product {
     // ENCAPSULAMENTOS
 
     // METODOS
-    public String priceTag(Product prod) {
-        return prod.getName() + " $" + prod.getPrice(); 
+    public String priceTag() {
+        return name + " $" + price; 
     }  
     // METODOS  
 

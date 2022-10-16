@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.jar.Attributes.Name;
+
 public class ImportProduct extends Product {
 
     // ATRIBUTOS
@@ -31,13 +33,12 @@ public class ImportProduct extends Product {
     // ENCAPSULAMENTO
 
     // METODOS 
-    public String priceTag(Product prod) {
-        ImportProduct imp_prod = (ImportProduct)prod;
-        return imp_prod.getName() + " $" + imp_prod.totalPrice(imp_prod);
+    public String priceTag() {
+        return this.getName() + " $" + totalPrice(this.getPrice(), customsFee) + "(Customs fee: $" + customsFee;
     }
 
-    public Double totalPrice(ImportProduct prod) {
-        return prod.getPrice() + prod.getCustomsFee();
+    public Double totalPrice(Double price, Double customsFee) {
+        return price + customsFee;
     }
     // METODOS
     

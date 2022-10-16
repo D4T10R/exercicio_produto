@@ -9,16 +9,16 @@ public class UsedProduct extends Product {
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     // ATRIBUTOS
-    private Date manufactureDate = new Date();
+    private Date manufactureDate;
     // ATRIBUTOS
 
     // CONSTRUTORES
     public UsedProduct(){
     }
     
-    public UsedProduct(String name, Double price, String date) throws ParseException {
+    public UsedProduct(String name, Double price, Date date) throws ParseException {
         super(name, price);
-        this.manufactureDate = sdf.parse(date);
+        this.manufactureDate = date;
     }
     // CONSTRUTORES
 
@@ -34,9 +34,8 @@ public class UsedProduct extends Product {
     
     // METODOS
     @Override
-    public String priceTag(Product prod) {
-        UsedProduct prod2 = (UsedProduct)prod;
-        return prod2.getName() + " $" + prod2.getPrice() + " (manufacture date: " + sdf.format(manufactureDate) + ")";
+    public String priceTag() {
+        return getName() + "(used) $" + getPrice() + " (manufacture date: " + sdf.format(manufactureDate) + ")";
     }
     // METODOS
     
